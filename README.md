@@ -84,6 +84,29 @@ Get Users
 
 <tr>
 <td> GET </td>
+<td>/politics </td>
+<td align="center">
+
+Get Politics
+
+</td>
+<td>
+
+```json
+[{
+    "id": 10154785231,
+    "name": "Cristian",
+    "lastName": "Quesada Cossio",
+    "email": "cris@..."
+}, ...]
+```
+
+</td>
+</tr>
+</tr>
+
+<tr>
+<td> GET </td>
 <td>/videos?userId </td>
 <td align="center">
 

@@ -1,1 +1,138 @@
-# VideoApp
+# VideoApp API
+
+## Routes
+
+<table>
+<tr>
+<td> <b>Method</b> </td> <td> <b>Route</b> </td> <td> <b>Body</b> </td> <td> <b> Answer </b></td> 
+</tr>
+<tr>
+<td> POST </td>
+<td>/createVideo </td>
+<td>
+
+```json
+{
+    "id": 10154785231,
+    "politicId":1,
+    "video": file
+}
+```
+
+</td>
+<td align="center">Status <b>200(OK)</b> || <b>500 (Not OK)</b></td>
+</tr>
+<tr>
+<td> POST </td>
+<td>/registerUser </td>
+<td>
+
+```json
+{
+    "id": 10154785231,
+    "name": "Cristian",
+    "lastName": "Quesada Cossio",
+    "email": "cris@..."
+}
+```
+
+</td>
+<td align="center">Status <b>200(OK)</b> || <b>500 (Not OK)</b></td>
+</tr>
+</tr>
+
+<tr>
+<td> POST </td>
+<td>/registerPolitic </td>
+<td>
+
+```json
+{
+    "id": 10154785231,
+    "name": "Cristian",
+    "lastName": "Quesada Cossio",
+    "email": "cris@..."
+}
+```
+
+</td>
+<td align="center">Status <b>200(OK)</b> || <b>500 (Not OK)</b></td>
+</tr>
+
+<tr>
+<td> GET </td>
+<td>/users </td>
+<td align="center">
+
+Get Users
+
+</td>
+<td>
+
+```json
+[{
+    "id": 10154785231,
+    "name": "Cristian",
+    "lastName": "Quesada Cossio",
+    "email": "cris@..."
+}, ...]
+```
+
+</td>
+</tr>
+</tr>
+
+<tr>
+<td> GET </td>
+<td>/videos?userId </td>
+<td align="center">
+
+Get all videos by user
+
+</td>
+<td>
+
+```json
+[{
+    "video": file,
+    "date": "20/04/2023",
+}, ...]
+```
+
+</td>
+</tr>
+</tr>
+
+<tr>
+<td> PATCH </td>
+<td>/deleteUser </td>
+<td>
+
+```json
+{
+    "id": 10154785231,
+    "email": "cris@..."
+}
+```
+
+</td>
+<td align="center">Status <b>200(OK)</b> || <b>500 (Not OK)</b></td>
+</tr>
+
+<tr>
+<td> PATCH </td>
+<td>/deletePolitic </td>
+<td>
+
+```json
+{
+    "id": 10154785231,
+    "email": "cris@..."
+}
+```
+
+</td>
+<td align="center">Status <b>200(OK)</b> || <b>500 (Not OK)</b></td>
+</tr>
+
+</table>

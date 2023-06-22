@@ -29,7 +29,7 @@
 
 ```json
 {
-    "id": 10154785231,
+    "id": "10154785231",
     "name": "Cristian",
     "lastName": "Quesada Cossio",
     "email": "cris@..."
@@ -48,7 +48,7 @@
 
 ```json
 {
-    "id": 10154785231,
+    "id": "10154785231",
     "name": "Cristian",
     "lastName": "Quesada Cossio",
     "email": "cris@..."
@@ -71,7 +71,7 @@ Get Users
 
 ```json
 [{
-    "id": 10154785231,
+    "id": "10154785231",
     "name": "Cristian",
     "lastName": "Quesada Cossio",
     "email": "cris@..."
@@ -94,7 +94,7 @@ Get Politics
 
 ```json
 [{
-    "id": 10154785231,
+    "id": "10154785231",
     "name": "Cristian",
     "lastName": "Quesada Cossio",
     "email": "cris@..."
@@ -133,7 +133,7 @@ Get all videos by user
 
 ```json
 {
-    "id": 10154785231,
+    "id": "10154785231",
     "email": "cris@..."
 }
 ```
@@ -149,7 +149,7 @@ Get all videos by user
 
 ```json
 {
-    "id": 10154785231,
+    "id": "10154785231",
     "email": "cris@..."
 }
 ```

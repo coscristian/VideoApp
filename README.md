@@ -51,7 +51,8 @@
     "id": "10154785231",
     "name": "Cristian",
     "lastName": "Quesada Cossio",
-    "email": "cris@..."
+    "email": "cris@...",
+    "department": "Risaralda"
 }
 ```
 

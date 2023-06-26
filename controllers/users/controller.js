@@ -31,4 +31,12 @@ const registerUser = async (userInfo, callback, validationCall) => {
         .catch(validationCall);
 }
 
-export { registerUser, dbErrors };
+const queryAllUsers = async (callback) => {
+    const connection = getDB();
+    await connection
+        .collection('users')
+        .find()
+        .toArray(callback);
+}
+
+export { registerUser, queryAllUsers, dbErrors};

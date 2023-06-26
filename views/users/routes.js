@@ -1,5 +1,5 @@
 import Express from "express";
-import { dbErrors, queryAllUsers, registerUser } from "../../controllers/users/controller.js";
+import { dbErrors, deleteUser, queryAllUsers, registerUser } from "../../controllers/users/controller.js";
 
 const userRoutes = Express.Router();
 
@@ -38,7 +38,7 @@ userRoutes.route('/users').get((req, res) => {
 
 userRoutes.route('/deleteUser/:id').patch((req, res) => {
     // Delete user = Change user state
-
+    deleteUser(req.params.id, genericCallback(res));
 });
 
 export default userRoutes;

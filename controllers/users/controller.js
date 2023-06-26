@@ -24,6 +24,7 @@ function validateUserFields(userInfo) {
 
 const registerUser = async (userInfo, callback, validationCall) => {
     const connection = getDB();
+    userInfo.status = 1;
     validateUserFields(userInfo)
         .then(async () => {
             await connection.collection('users').insertOne(userInfo, callback);
@@ -39,4 +40,15 @@ const queryAllUsers = async (callback) => {
         .toArray(callback);
 }
 
-export { registerUser, queryAllUsers, dbErrors};
+const deleteUser = async (userId, callback) => {
+    const connection = getDB();
+    await connection
+        .collection('users')
+        .updateOne(
+            {"_id": userId},
+            {
+                $set: {"status":0}
+            }, callback);
+}
+
+export { registerUser, queryAllUsers, deleteUser, dbErrors};

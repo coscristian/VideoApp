@@ -18,7 +18,7 @@ function validatePoliticFields(politicInfo) {
         if (!politicInfo.email) {
             throw new Error('Please add a email');
         }
-        if(!politicInfo.department){
+        if (!politicInfo.department) {
             throw new Error('Please add a department');
         }
         resolve();
@@ -43,15 +43,54 @@ const queryAllPolitics = async (callback) => {
         .toArray(callback);
 }
 
-const deletePolitic = async (politicId, callback) => {
-    const connection = getDB();
-    await connection
-        .collection('politics')
-        .updateOne(
-            {"_id": politicId},
-            {
-                $set: {"status":0}
-            }, callback);
+const politicExists = (politicId, politicInfo) => {
+    return new Promise(async (resolve, reject) => {
+        const connection = getDB();
+        await connection
+            .collection('politics')
+            .find({ "_id": politicId, "email": politicInfo.email })
+            .toArray((err, result) => {
+                if (err) return reject(err);
+                if (result.length == 0)
+                    return reject("Not existing politic with that ID or email");
+                return resolve();
+            });
+    }
+    );
 }
 
-export { registerPolitic, queryAllPolitics, deletePolitic, dbErrors};
+const checkNotDeleted = (id) => {
+    return new Promise(async (resolve, reject) => {
+        const connection = getDB();
+        await connection
+            .collection('politics')
+            .find({ "_id": id })
+            .toArray((err, result) => {
+                if (err) return reject(err);
+                if (result[0].status) return resolve();
+                return reject("Not exists!! Politic was deleted");
+            })
+    });
+}
+
+const deletePolitic = async (politicId, politicInfo, callback, validationCallback) => {
+    const connection = getDB();
+
+    politicExists(politicId, politicInfo)
+        .then(() => {
+            checkNotDeleted(politicId)
+                .then(async () => {
+                    await connection
+                        .collection('politics')
+                        .updateOne(
+                            { "_id": politicId },
+                            {
+                                $set: { "status": 0 }
+                            }, callback);
+                })
+                .catch(validationCallback)
+        })
+        .catch(validationCallback);
+}
+
+export { registerPolitic, queryAllPolitics, deletePolitic, dbErrors };

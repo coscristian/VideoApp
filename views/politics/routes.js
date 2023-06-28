@@ -1,5 +1,5 @@
 import Express from "express";
-import { dbErrors, deleteUser, queryAllUsers} from "../../controllers/users/controller.js";
+import { dbErrors} from "../../controllers/users/controller.js";
 import { deletePolitic, queryAllPolitics, registerPolitic } from "../../controllers/politics/controller.js";
 
 const politicRoutes = Express.Router();
@@ -35,7 +35,7 @@ politicRoutes.route('/politics').get((req, res) => {
 });
 
 politicRoutes.route('/deletePolitic/:id').patch((req, res) => {
-    deletePolitic(req.params.id, genericCallback(res));
+    deletePolitic(req.params.id, req.body, genericCallback(res), validationCallback(res));
 });
 
 export default politicRoutes;

@@ -3,6 +3,7 @@ import userRoutes from "./views/users/routes.js";
 import { connectDB } from "./db/db.js";
 import Cors from 'cors';
 import politicRoutes from "./views/politics/routes.js";
+import videoRoutes from "./views/videos/routes.js";
 
 const app = Express();
 
@@ -10,6 +11,7 @@ app.use(Express.json());
 app.use(Cors());
 app.use(userRoutes);
 app.use(politicRoutes);
+app.use(videoRoutes);
 
 const usuarios = [
     {

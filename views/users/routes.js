@@ -30,14 +30,10 @@ userRoutes.route('/registerUser').post((req, res) => {
 });
 
 userRoutes.route('/users').get((req, res) => {
-    // Get all registered users
-    //queryAllUsers(genericCallback(res));
     queryAllUsers(genericCallback(res));
-    //res.send('Showing all registered users');
 });
 
 userRoutes.route('/deleteUser/:id').patch((req, res) => {
-    // Delete user = Change user state
     deleteUser(req.params.id, genericCallback(res));
 });
 
